@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateReminder.Designer.cs">
+      <DependentUpon>CreateReminder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -51,6 +57,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateReminder.resx">
+      <DependentUpon>CreateReminder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
