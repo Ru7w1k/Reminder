@@ -9,7 +9,6 @@ namespace Reminder.Model
     public enum Repeat
     {
         Never,
-        PerDay,
         PerMonth,
         PerYear
     }

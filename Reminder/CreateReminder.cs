@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reminder.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,8 @@ namespace Reminder
 {
     public partial class CreateReminder : Form
     {
+        private IReminderRepo _ReminderRepo = null;
+
         public CreateReminder()
         {
             InitializeComponent();
@@ -18,14 +21,15 @@ namespace Reminder
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DateTime eventDate = dtReminderDate.Value;
-            String strTitle = txtTitle.Text;
-            Char repeat = 'N';
+            Reminder.Model.Reminder reminder = new Model.Reminder();
+            reminder.Date = dtReminderDate.Value;
+            reminder.Event = txtTitle.Text;
 
-            if (rbMonthly.Checked) repeat = 'M';
-            else if (rbYearly.Checked) repeat = 'Y';
+            if (rbMonthly.Checked) reminder.Repeat = Repeat.PerMonth;
+            else if (rbYearly.Checked) reminder.Repeat = Repeat.PerYear;
+            else reminder.Repeat = Repeat.Never;
 
-            MessageBox.Show(eventDate + ":" + strTitle + ":" + repeat);
+
         }
     }
 }
