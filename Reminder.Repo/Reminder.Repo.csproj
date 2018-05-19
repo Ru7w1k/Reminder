@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFFFDE26-7E51-412C-875F-E51C15E81832}</ProjectGuid>
+    <ProjectGuid>{15FD6347-3485-4F3D-B697-12088A569C19}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Reminder.Interface</RootNamespace>
-    <AssemblyName>Reminder.Interface</AssemblyName>
+    <RootNamespace>Reminder.Repo</RootNamespace>
+    <AssemblyName>Reminder.Repo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDbHandler.cs" />
-    <Compile Include="IReminderRepo.cs" />
+    <Compile Include="ReminderRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DbHandler\DbHandler.csproj">
+      <Project>{4C9A6336-A1B7-44CC-8ABC-7EBCA5E5D2F9}</Project>
+      <Name>DbHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reminder.Interface\Reminder.Interface.csproj">
+      <Project>{AFFFDE26-7E51-412C-875F-E51C15E81832}</Project>
+      <Name>Reminder.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Reminder.Model\Reminder.Model.csproj">
-      <Project>{df5d9d84-1749-4053-8f75-2f9f115d6c2e}</Project>
+      <Project>{DF5D9D84-1749-4053-8F75-2F9F115D6C2E}</Project>
       <Name>Reminder.Model</Name>
     </ProjectReference>
   </ItemGroup>

@@ -8,8 +8,9 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Reminder</RootNamespace>
     <AssemblyName>Reminder</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,7 +52,6 @@
     <Compile Include="CreateReminder.Designer.cs">
       <DependentUpon>CreateReminder.cs</DependentUpon>
     </Compile>
-    <Compile Include="IReminderRepo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreateReminder.resx">
@@ -63,7 +65,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -86,6 +90,10 @@
     <ProjectReference Include="..\Reminder.Model\Reminder.Model.csproj">
       <Project>{df5d9d84-1749-4053-8f75-2f9f115d6c2e}</Project>
       <Name>Reminder.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reminder.Repo\Reminder.Repo.csproj">
+      <Project>{15FD6347-3485-4F3D-B697-12088A569C19}</Project>
+      <Name>Reminder.Repo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

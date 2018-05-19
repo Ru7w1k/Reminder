@@ -17,6 +17,10 @@ namespace DbHandler
 
         public IEnumerable<Reminder.Model.Reminder> LoadReminders()
         {
+            if(!File.Exists(_AppDataFolder + "\\" + _RemindersFile))
+            {
+                File.Create(_AppDataFolder + "\\" + _RemindersFile);
+            }
             string fromFile = File.ReadAllText(_AppDataFolder + "\\" + _RemindersFile);
             return JsonConvert.DeserializeObject<IEnumerable<Reminder.Model.Reminder>>(fromFile);
         }

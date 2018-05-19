@@ -1,4 +1,6 @@
-﻿using Reminder.Model;
+﻿using Reminder.Interface;
+using Reminder.Model;
+using Reminder.Repo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,7 @@ namespace Reminder
 
         public CreateReminder()
         {
+            _ReminderRepo = new ReminderRepo();
             InitializeComponent();
         }
 
@@ -29,7 +32,7 @@ namespace Reminder
             else if (rbYearly.Checked) reminder.Repeat = Repeat.PerYear;
             else reminder.Repeat = Repeat.Never;
 
-
+            _ReminderRepo.Add(reminder);
         }
     }
 }
