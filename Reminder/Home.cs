@@ -25,20 +25,17 @@ namespace Reminder
         private void Home_Load(object sender, EventArgs e)
         {
             RefreshGridView();
-            
+
         }
 
         private void RefreshGridView()
         {
             var data = _DbHandler.LoadReminders();
             gridViewReminders.DataSource = data;
-            
-            if(data != null && _Flag == 0)
+
+            if (data != null && _Flag == 0)
             {
                 _Flag = 1;
-
-                
-
                 var EditBtnCol = new DataGridViewButtonColumn()
                 {
                     Name = "edit",
