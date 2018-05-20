@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
@@ -15,12 +16,30 @@ namespace ReminderService
     {
         private IDbHandler _DbHandler = null;
         private IEnumerable<Reminder.Model.Reminder> _Reminders = null;
+        private string _AppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        private string _RemindersFile = "reminders.json";
+        private FileSystemWatcher _FileSystemWatcher = null;
 
         public ReminderService()
         {
+            // FileSystemWatcher
+            _FileSystemWatcher = new FileSystemWatcher(_AppDataFolder + "\\" + _RemindersFile);
+            _FileSystemWatcher.EnableRaisingEvents = true;
+            _FileSystemWatcher.Changed += _FileSystemWatcher_Changed;
+
+            // Session Watcher
             CanHandleSessionChangeEvent = true;
+
             _DbHandler = new DbHandler.DbHandler();
+            _Reminders = new List<Reminder.Model.Reminder>();
+
             InitializeComponent();
+        }
+
+        private void _FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            // LOAD reminders data set again..
+                        
         }
 
         protected override void OnStart(string[] args)

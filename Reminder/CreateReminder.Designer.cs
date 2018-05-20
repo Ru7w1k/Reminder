@@ -47,6 +47,7 @@
             this.dtReminderDate.Name = "dtReminderDate";
             this.dtReminderDate.Size = new System.Drawing.Size(131, 20);
             this.dtReminderDate.TabIndex = 0;
+            this.dtReminderDate.ValueChanged += new System.EventHandler(this.dtReminderDate_ValueChanged);
             // 
             // lblDate
             // 
@@ -139,6 +140,7 @@
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // CreateReminder
             // 

@@ -15,7 +15,7 @@ namespace Reminder
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CreateReminder());
+            Application.Run(new Home());
         }
     }
 }

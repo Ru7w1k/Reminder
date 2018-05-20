@@ -15,7 +15,7 @@ namespace Reminder.Model
 
     public class Reminder
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Event { get; set; }
         public DateTime Date { get; set; }
         public Repeat Repeat { get; set; } 

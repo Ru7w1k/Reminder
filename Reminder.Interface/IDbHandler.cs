@@ -11,7 +11,5 @@ namespace Reminder.Interface
     {
         IEnumerable<Reminder.Model.Reminder> LoadReminders();
         void StoreReminders(IEnumerable<Reminder.Model.Reminder> reminders);
-
-
     }
 }

@@ -26,14 +26,15 @@ namespace Reminder.Repo
 
         public void Add(Model.Reminder reminder)
         {
-            reminder.Id = _Reminders.Count();
+            reminder.Id = _Reminders.LastOrDefault() == null ? 0 : _Reminders.LastOrDefault().Id + 1;
             _Reminders.Add(reminder);
             _DbHandler.StoreReminders(_Reminders);
         }
 
         public void Delete(Model.Reminder reminder)
         {
-            throw new NotImplementedException();
+            _Reminders.Remove(reminder);
+            _DbHandler.StoreReminders(_Reminders);
         }
 
         public Model.Reminder Get(int id)
@@ -48,7 +49,9 @@ namespace Reminder.Repo
 
         public void Update(Model.Reminder reminder)
         {
-            throw new NotImplementedException();
+            var toUpdate = _Reminders.FindIndex((rem) => rem.Id == reminder.Id);
+            _Reminders[toUpdate] = reminder;
+            _DbHandler.StoreReminders(_Reminders);
         }
     }
 }

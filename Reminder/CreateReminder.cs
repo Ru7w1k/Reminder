@@ -25,7 +25,7 @@ namespace Reminder
         private void btnSave_Click(object sender, EventArgs e)
         {
             Reminder.Model.Reminder reminder = new Model.Reminder();
-            reminder.Date = dtReminderDate.Value;
+            reminder.Date = dtReminderDate.Value.Date;
             reminder.Event = txtTitle.Text;
 
             if (rbMonthly.Checked) reminder.Repeat = Repeat.PerMonth;
@@ -33,6 +33,17 @@ namespace Reminder
             else reminder.Repeat = Repeat.Never;
 
             _ReminderRepo.Add(reminder);
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void dtReminderDate_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
