@@ -23,6 +23,12 @@ namespace ReminderService
         public ReminderService()
         {
             // FileSystemWatcher
+
+            if(!File.Exists(_AppDataFolder + "\\" + _RemindersFile))
+            {
+                File.Create(_AppDataFolder + "\\" + _RemindersFile);
+            }
+
             _FileSystemWatcher = new FileSystemWatcher(_AppDataFolder + "\\" + _RemindersFile);
             _FileSystemWatcher.EnableRaisingEvents = true;
             _FileSystemWatcher.Changed += _FileSystemWatcher_Changed;
